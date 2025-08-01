@@ -38,7 +38,6 @@ namespace ControleDeVendas.Configuration
                 };
             });
             return builder;
-
         }
     }
 }

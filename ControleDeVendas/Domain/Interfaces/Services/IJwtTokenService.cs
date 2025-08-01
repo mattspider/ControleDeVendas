@@ -1,7 +1,9 @@
-﻿namespace ControleDeVendas.Domain.Interfaces.Services
+﻿using ControleDeVendas.Data.DTOs;
+
+namespace ControleDeVendas.Domain.Interfaces.Services
 {
     public interface IJwtTokenService
     {
-        string GerarToken(string usuario);
+        string GerarToken(LoginDtoRequest loginDtoRequest);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ControleDeVendas.Configuration;
+using ControleDeVendas.Data.DTOs;
 using ControleDeVendas.Domain.Interfaces.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -17,11 +18,11 @@ namespace ControleDeVendas.Domain.Services
             _JwtSettings = jwtSettings.Value;
         }
 
-        public string GerarToken(string usuario)
+        public string GerarToken(LoginDtoRequest loginDtoRequest)
         {
             var claims = new[]
             {
-            new Claim(ClaimTypes.Name, usuario),
+            new Claim(ClaimTypes.Name, loginDtoRequest.usuario)
         };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_JwtSettings.Segredo));

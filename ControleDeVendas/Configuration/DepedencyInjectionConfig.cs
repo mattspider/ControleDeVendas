@@ -11,11 +11,15 @@ namespace ControleDeVendas.Configuration
         public static IServiceCollection AddRepositoryInjection(this IServiceCollection services)
         {
             services.AddScoped<IUsuariosRepository, UsuariosRepository>();
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<IUnityOfWork, UnityOfWork>();
             return services;
         }
 
         public static IServiceCollection AddServiceInjection(this IServiceCollection services) {
             services.AddScoped<IUsuariosService, UsuariosService>();
+            services.AddScoped<ILoginService, LoginService>();
+            services.AddScoped<IJwtTokenService, JwtTokenService>();
             return services;
         }
 
